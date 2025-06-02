@@ -3,12 +3,12 @@
 # The additional_params field, you can specify any CLI arguments that you would like to apply to scans of this project.
 name: Checkmarx One Default
 on:
-  #pull_request:
+  pull_request:
   #  types:
   #   - opened
   #    - closed
-  #  branches:
-  #    - main
+    branches:
+      - main
   workflow_dispatch:
 jobs:  
   build:
