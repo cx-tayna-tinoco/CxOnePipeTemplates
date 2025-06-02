@@ -42,7 +42,7 @@ jobs:
           branch: ${{ github.head_ref || github.ref }}
           # GitHub API Token
           # optional, default is ${{ github.token }}
-          github_token: ${{ github.token }}
+          github_token: ${{ secrets.PR_TOKEN }}
           # Additional parameters for AST scan
           additional_params: --sast-preset-name "ASA Premium" --threshold "sast-high=10; sast-medium=20; sca-high=10; containers-high=5"                           
           # Repository name for PR decoration
