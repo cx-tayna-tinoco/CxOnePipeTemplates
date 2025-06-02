@@ -44,7 +44,7 @@ jobs:
           # optional, default is ${{ github.token }}
           github_token: ${{ secrets.PR_TOKEN }}
           # Additional parameters for AST scan
-          additional_params: --sast-preset-name "ASA Premium" --threshold "sast-high=10; sast-medium=20; sca-high=10; containers-high=5" --report-format sarif --output-path cx_result.sarif                       
+          additional_params: --sast-preset-name "ASA Premium" --threshold "sast-high=10; sast-medium=20; sca-high=10; containers-high=5" --report-format sarif --output-path ${{ github.workspace }}/cx_result.sarif                       
           # Repository name for PR decoration
           # optional, default is ${{ github.event.repository.name }}
           repo_name: ${{ github.event.repository.name }}
@@ -58,5 +58,5 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with: 
           # Path to SARIF file relative to the root of the repository
-          sarif_file: cx_result.sarif
+          sarif_file: ${{ github.workspace }}/cx_result.sarif 
                 
