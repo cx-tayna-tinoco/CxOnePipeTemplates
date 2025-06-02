@@ -18,7 +18,9 @@ jobs:
       #Else the env.CURRENT_BRANCH receives the github.head_ref
       CURRENT_BRANCH: ${{ (github.event.pull_request.merged == true) && github.ref || github.head_ref }}
     runs-on: ubuntu-latest
-    steps:             
+    steps:   
+      - name: Check Paths ${{ github.workspace }}
+        run: ls 
       - name: Checkout
         uses: actions/checkout@v2
       - name: Checkmarx AST Github Action
@@ -44,7 +46,7 @@ jobs:
           # optional, default is ${{ github.token }}
           github_token: ${{ secrets.PR_TOKEN }}
           # Additional parameters for AST scan
-          additional_params: --sast-preset-name "ASA Premium" --threshold "sast-high=10; sast-medium=20; sca-high=10; containers-high=5" --report-format sarif --output-path ${{ github.workspace }}/cx_result.sarif                       
+          additional_params: --sast-preset-name "ASA Premium" --threshold "sast-high=10; sast-medium=20; sca-high=10; containers-high=5" #--report-format sarif --output-path ${{ github.workspace }}/cx_result.sarif                       
           # Repository name for PR decoration
           # optional, default is ${{ github.event.repository.name }}
           repo_name: ${{ github.event.repository.name }}
