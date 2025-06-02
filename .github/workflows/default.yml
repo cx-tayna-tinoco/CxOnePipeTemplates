@@ -58,6 +58,7 @@ jobs:
           pr_number: ${{ github.event.number }}
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
+        if:  always()
         #if: ${{ hashFiles('${{ github.runner_temp }}/cx_result.sarif') != '' }}
         with: 
           # Path to SARIF file relative to the root of the repository
