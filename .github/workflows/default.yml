@@ -41,7 +41,7 @@ jobs:
           # optional, default is ${{ github.token }}
           github_token: ${{ secrets.PR_TOKEN }}
           # Additional parameters for AST scan
-          additional_params: --sast-preset-name "ASA Premium" --threshold "sast-high=10; sast-medium=20; sca-high=10; containers-high=5" --report-format sarif --output-path "${{ github.runner_temp }}"
+          additional_params: --sast-preset-name "ASA Premium" --threshold "sast-high=10; sast-medium=20; sca-high=10; containers-high=5" --report-format sarif --output-path "$RUNNER_TEMP/"
           # optional, default is ${{ github.event.repository.name }}
           repo_name: ${{ github.event.repository.name }}
           # Organization name to create the Pr comment
@@ -50,6 +50,8 @@ jobs:
           # Pr Number of the pull request that needs the decoration
           # optional, default is ${{ github.event.number }}
           pr_number: ${{ github.event.number }}
+      - name: Check Paths ${{ github.workspace }}
+        run: cd ${{ github.runner_temp }} && ls
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
         if:  always()
