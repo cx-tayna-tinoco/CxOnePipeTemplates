@@ -60,5 +60,5 @@ jobs:
         with: 
           # Path to SARIF file relative to the root of the repository
           sarif_file: ${{ github.workspace }}/cx_result.sarif
-          category: cxone-analysis
+          #category: cxone-analysis
                 
