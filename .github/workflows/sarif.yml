@@ -50,6 +50,9 @@ jobs:
           # Pr Number of the pull request that needs the decoration
           # optional, default is ${{ github.event.number }}
           pr_number: ${{ github.event.number }}
+      - name: Check Paths
+        if:  always()
+        run: pwd && ls
       #- name: Upload SARIF file
       #  uses: github/codeql-action/upload-sarif@v3
       #  if:  always()
