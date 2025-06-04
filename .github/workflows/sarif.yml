@@ -8,7 +8,7 @@ on:
      - opened
   #    - closed
     branches:
-      - main
+      - main  
   workflow_dispatch:
 jobs:  
   build:    
