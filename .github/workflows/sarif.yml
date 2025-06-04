@@ -54,7 +54,8 @@ jobs:
         if:  always()
         run: pwd && ls
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v3
+        #uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v2
         if:  always()
         #if: ${{ hashFiles('${{ github.workspace}}/cx_result.sarif') != '' }}
         with: 
