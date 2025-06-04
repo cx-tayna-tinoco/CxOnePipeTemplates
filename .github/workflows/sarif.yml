@@ -1,7 +1,7 @@
 # Checkmarx Documentation can be found at:
 #  https://docs.checkmarx.com/en/34965-68702-checkmarx-one-github-actions.html
 # The additional_params field, you can specify any CLI arguments that you would like to apply to scans of this project.
-name: Checkmarx One Default
+name: Checkmarx One - With Security report
 on:
   pull_request:
   #  types:
