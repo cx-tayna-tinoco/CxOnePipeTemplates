@@ -44,7 +44,7 @@ jobs:
           # optional, default is ${{ github.token }}
           github_token: ${{ secrets.PR_TOKEN }}
           # Additional parameters for AST scan
-          additional_params: --sast-incremental false --report-format sarif --output-path .
+          additional_params: --report-format sarif --output-path .
           # optional, default is ${{ github.event.repository.name }}
           repo_name: ${{ github.event.repository.name }}
           # Organization name to create the Pr comment
